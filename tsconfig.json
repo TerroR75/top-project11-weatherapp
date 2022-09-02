@@ -7,7 +7,7 @@
         "noImplicitAny": true,
         "module": "es6",
         "moduleResolution": "node",
-        "target": "es5",
+        "target": "ES5",
         "allowJs": true,
     },
     "include": [

@@ -1,0 +1,12 @@
+{
+    "EN": {
+        "error": {
+            "requestError": "City not found"
+        }
+    },
+    "PL": {
+        "error": {
+            "requestError": "Nie znaleziono miasta"
+        }
+    }
+}

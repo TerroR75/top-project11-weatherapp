@@ -8,4 +8,15 @@
     .input-group {
         width: 300px;
     }
+
+    .input-error-msg {
+        color: red;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+
+    // ERROR MSG
+    .error-hidden {
+        visibility: hidden;
+    }
 }

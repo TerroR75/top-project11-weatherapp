@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/*!
+ * Bootstrap  v5.2.0 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 .app {
   width: 100vw;
   height: 100vh;
@@ -10,23 +17,67 @@
 .app .input-group {
   width: 300px;
 }
+.app .input-error-msg {
+  color: red;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.app .error-hidden {
+  visibility: hidden;
+}
 
 .weather-window {
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
   min-width: 400px;
   height: 75%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 8px 8px 31px -8px rgb(66, 68, 90);
+  display: grid;
+  grid-template-rows: 0.8fr 2fr;
+}
+.weather-window .weather-top-part {
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0.089);
+  padding: 10px;
+}
+.weather-window .weather-top-part h5, .weather-window .weather-top-part .h5 {
+  text-align: center;
+}
+.weather-window .weather-top-part .degree-display {
+  width: 100%;
+  height: 150px;
+  border: 1px solid purple;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.weather-window .weather-top-part .degree-display div {
+  border: 1px solid black;
+  height: 100%;
+  width: 50%;
+}
+.weather-window .weather-top-part .degree-display .left-deg-dis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 3.5rem;
+}
+.weather-window .weather-top-part .degree-display .right-deg-dis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.weather-window .weather-bottom-part {
+  width: 100%;
+  background-color: rgba(53, 8, 255, 0.329);
 }
 
-/*!
- * Bootstrap  v5.2.0 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -10943,4 +10994,7 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+* {
+  font-family: "Roboto Mono", monospace;
 }/*# sourceMappingURL=styles.css.map */
