@@ -1,0 +1,9 @@
+@import '../utils/mixins';
+
+.weather-window {
+    border: 1px solid black;
+    min-width: 400px;
+    height: 75%;
+    @include flex(column);
+
+}

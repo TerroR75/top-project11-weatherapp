@@ -1,8 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 const config = {
+    mode: 'development',
     entry: './src/index.ts',
+    devtool: 'inline-source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -31,6 +34,9 @@ const config = {
             }
         ]
     },
+    plugins: [
+        new Dotenv()
+    ],
     resolve: {
         extensions: [
             '.tsx',

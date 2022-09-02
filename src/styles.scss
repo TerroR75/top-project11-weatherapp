@@ -1,2 +1,6 @@
+// Partials
+@use './styles/partials/app';
+@use './styles/partials/weatherwindow';
+
 // Import all of Bootstrap's CSS
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

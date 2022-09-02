@@ -21,6 +21,7 @@
   "homepage": "https://github.com/TerroR75/top-project11-weatherapp#readme",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "dotenv-webpack": "^8.0.1",
     "node-sass": "^7.0.1",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",

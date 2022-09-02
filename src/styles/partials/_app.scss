@@ -1,0 +1,11 @@
+@import '../utils/mixins';
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    @include flex(column);
+
+    .input-group {
+        width: 300px;
+    }
+}
