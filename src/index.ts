@@ -23,9 +23,8 @@ searchCityBtn.addEventListener('click', async () => {
         });
     };
 
-    if (weatherDisplay.innerHTML === '') {
-        domFunc.renderWeatherInfo(weatherDisplay, jsonData);
-    };
+    // Render weather info in DOM
+    domFunc.renderWeatherInfo(weatherDisplay, jsonData);
 });
 
 
