@@ -73,9 +73,55 @@
   flex-direction: row;
   justify-content: flex-start;
 }
+.weather-window .weather-top-part .degree-display .right-deg-dis ul {
+  list-style-type: none;
+  font-size: 0.8rem;
+}
 .weather-window .weather-bottom-part {
   width: 100%;
   background-color: rgba(53, 8, 255, 0.329);
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.weather-window .weather-bottom-part .next-day-card {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid black;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 30px;
+}
+.weather-window .weather-bottom-part .next-day-card .weather-icon {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.weather-window .weather-bottom-part .next-day-card .day-date {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.weather-window .weather-bottom-part .next-day-card .day-temp {
+  font-size: 2.5rem;
+  height: 100%;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 :root {

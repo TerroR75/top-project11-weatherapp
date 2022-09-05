@@ -3,7 +3,7 @@
 import './styles.css';
 import * as domFunc from './scripts/renderDOM'
 
-const API_KEY = process.env.WEATHER_APP_API_KEY;
+export const API_KEY = process.env.WEATHER_APP_API_KEY;
 
 const inputCity = document.querySelector('.input-group .form-control') as HTMLInputElement;
 const searchCityBtn = document.querySelector('.input-group button')!;
@@ -20,6 +20,7 @@ searchCityBtn.addEventListener('click', async () => {
         const fetchedData = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&APPID=${API_KEY}`, { mode: 'cors' });
         fetchedData.json().then(function (response) {
             jsonData = JSON.stringify(response);
+            console.log(jsonData);
             domFunc.renderWeatherInfo(weatherDisplay, jsonData);
         });
     };
