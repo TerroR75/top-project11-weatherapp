@@ -1,6 +1,6 @@
 // Import our custom CSS
 // import './styles.scss'
-import './styles.css';
+import './styles.scss';
 import * as domFunc from './scripts/renderDOM'
 
 export const API_KEY = process.env.WEATHER_APP_API_KEY;

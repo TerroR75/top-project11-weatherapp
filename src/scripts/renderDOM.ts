@@ -1,4 +1,5 @@
 import { API_KEY } from '../index';
+import '../styles.scss';
 
 let nextDaysData: string = '';
 
