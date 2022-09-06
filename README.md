@@ -4,7 +4,7 @@ Simple weather app.
 
 Live Preview: #
 
-![alt text](#)
+![Preview_1](https://raw.githubusercontent.com/TerroR75/top-project11-weatherapp/main/showcase/1.png)
 ![alt text](#)
 
 ## Features
