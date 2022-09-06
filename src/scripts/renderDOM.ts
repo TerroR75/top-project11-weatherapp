@@ -41,7 +41,7 @@ export function renderWeatherInfo(DOMElement: HTMLElement, jsonData: string, tem
     const listTwo = document.createElement('li');
     const listThree = document.createElement('li');
 
-    listOne.innerHTML = `Feels like: ${calculateTemp(cityData.main["feels_like"], tempType).toFixed(2)}&#176;`;
+    listOne.innerHTML = `Feels like: ${calculateTemp(cityData.main["feels_like"], tempType).toFixed(2)}&#176;${tempType}`;
     listTwo.innerText = `Pressure: ${cityData.main.pressure}hPa`;
     listThree.innerText = `Humidity: ${cityData.main.humidity}%`;
 
@@ -57,15 +57,15 @@ export function renderWeatherInfo(DOMElement: HTMLElement, jsonData: string, tem
 
 
     // FETCH NEXT DAYS DATA
-    retrieveNextDaysData(cityData.coord.lon, cityData.coord.lat);
+    retrieveNextDaysData(cityData.coord.lon, cityData.coord.lat, tempType);
 }
 
 
-async function retrieveNextDaysData(lon: number, lat: number) {
+async function retrieveNextDaysData(lon: number, lat: number, tempType: string) {
     const retrievedData = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`, { mode: 'cors' });
     retrievedData.json().then(function (response) {
         nextDaysData = JSON.stringify(response);
-        renderNextDaysDOM(nextDaysData);
+        renderNextDaysDOM(nextDaysData, tempType);
     });
 }
 
@@ -82,14 +82,14 @@ function calculateTemp(degrees: number, tempType: string) {
     }
 }
 
-function renderNextDaysDOM(data: string) {
+function renderNextDaysDOM(data: string, tempType: string) {
     const daysData = JSON.parse(data);
 
     // RENDERING
-    renderDOM(daysData);
+    renderDOM(daysData, tempType);
 }
 
-function renderDOM(data: any) {
+function renderDOM(data: any, tempType: string) {
     const container = document.querySelector('.weather-bottom-part') as HTMLElement;
 
 
@@ -101,7 +101,14 @@ function renderDOM(data: any) {
         // TIMESTAMP ICON
         const timestampIcon = document.createElement('div');
         timestampIcon.classList.add('weather-icon');
-        timestampIcon.innerText = data.list[i].weather[0].main;
+        // timestampIcon.innerText = data.list[i].weather[0].main;
+        if (data.list[i].rain) {
+            timestampIcon.innerHTML = setIcon(data.list[i].weather[0].main, data.list[i].rain["3h"]);
+        }
+        else {
+            timestampIcon.innerHTML = setIcon(data.list[i].weather[0].main);
+        }
+
         nextDayCard.appendChild(timestampIcon);
 
         // TIMESTAMP DATE
@@ -115,8 +122,21 @@ function renderDOM(data: any) {
         // TIMESTAMP TEMP
         const timestampTemp = document.createElement('div');
         timestampTemp.classList.add('day-temp');
-        timestampTemp.innerHTML = `${calculateTemp(data.list[i].main.temp, 'C').toFixed(0)}&#176;`;
+        timestampTemp.innerHTML = `${calculateTemp(data.list[i].main.temp, tempType).toFixed(0)}&#176;${tempType}`;
         nextDayCard.appendChild(timestampTemp);
     }
 
+}
+
+function setIcon(weather: string, chanceForRain: string = '0') {
+    if (weather === 'Clear') {
+        return '<i class="bi bi-sun"></i>'
+    }
+    else if (weather === 'Clouds') {
+        return '<i class="bi bi-cloud-sun"></i>'
+    }
+    else if (weather === 'Rain') {
+        return `<i class="bi bi-cloud-drizzle"></i><div>${chanceForRain}%</div>`
+    }
+    else return 'Unknown'
 }
