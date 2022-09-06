@@ -10,10 +10,12 @@ Live Preview: #
 ## Features
 
 - API fetching from https://openweathermap.org
+- 3 hour forecast for 5 days
 
 
 ## To do
-- 
+- Grouping by day
+- Better design
 
 ## Authors
 
